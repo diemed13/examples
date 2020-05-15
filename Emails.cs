@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+/* Generic email class */
+/* Developed by Diego Medeiros */
+using System;
 using System.Web;
 using System.Collections.Generic;
 using System.Net.Mail;
