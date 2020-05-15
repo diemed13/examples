@@ -13,7 +13,6 @@ namespace Utils.Mail
     {
         delegate void SendAllMessages(List<MailMessage> messages, object state);
         private static Emails currentClass;
-
         private List<MailMessage> m_MessagesList;
 
         public List<MailMessage> MessagesList
@@ -27,7 +26,7 @@ namespace Utils.Mail
         }
 
         /// <summary>
-        /// Adiciona na lista um e-mail na lista de e-mails a serem enviados.
+        /// Adiciona e-mail em uma lista para serem enviados.
         /// </summary>
         /// <param name="message"></param>
         public static void Add(MailMessage message)
@@ -128,9 +127,7 @@ namespace Utils.Mail
 
         public static void EnviarEmail(string Para, string Assunto, string Corpo)
         {
-            // Valida se o endereço do e-mail é válido;
-            if (string.IsNullOrEmpty(Para))
-                return;
+            if (string.IsNullOrEmpty(Para)) return;
 
             MailMessage message = new MailMessage();
             message.To.Add(Para);
@@ -160,14 +157,10 @@ namespace Utils.Mail
         public static void EnviarEmailAutenticado(string De, string Para, string Assunto, string Corpo, string Usuario, string Senha,
             byte[] Arquivo, string NomeArquivo)
         {
-            // Valida se o endereço do e-mail é válido;
-            if (string.IsNullOrEmpty(Para))
-                return;
-
+            if (string.IsNullOrEmpty(Para)) return;
 
             MailMessage message = new MailMessage(De, Para, Assunto, Corpo);
             message.IsBodyHtml = true;
-
 
             // Arquivo em anexo
             if (Arquivo.Length > 0)
@@ -176,7 +169,6 @@ namespace Utils.Mail
                 Attachment anexo = new Attachment(MS, NomeArquivo);
                 message.Attachments.Add(anexo);
             }
-
 
             SmtpClient client = new SmtpClient();
             client.Credentials = new NetworkCredential(Usuario, Senha);
@@ -195,7 +187,6 @@ namespace Utils.Mail
         /// <param name="Senha"></param>
         public static void EnviarEmailAutenticado(string De, string Para, string Assunto, string Corpo, string Usuario, string Senha, int PortaSmtp, string Smtp)
         {
-            // Valida se o endereço do e-mail é válido;
             if (string.IsNullOrEmpty(Para)) return;
             
             MailMessage message = new MailMessage(De, Para, Assunto, Corpo);
@@ -211,12 +202,12 @@ namespace Utils.Mail
 
         public static bool isEmail(string inputEmail)
         {
-            if (string.IsNullOrEmpty(inputEmail))
-                return false;
+            if (string.IsNullOrEmpty(inputEmail)) return false;
 
             string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
                   @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                   @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            
             Regex re = new Regex(strRegex);
             if (re.IsMatch(inputEmail))
                 return (true);
