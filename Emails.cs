@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 using System.Net;
 using System.IO;
 
-// mensagem de teste
+// mensagem de teste escrito na master
 
 namespace Utils.Mail
 {
