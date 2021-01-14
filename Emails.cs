@@ -10,6 +10,8 @@ using System.Text.RegularExpressions;
 using System.Net;
 using System.IO;
 
+// mensagem de teste
+
 namespace Utils.Mail
 {
     public class Emails
