@@ -12,6 +12,11 @@ using System.IO;
 
 // mensagem de teste na branch filha
 
+
+// NOVO COMENTARIO FEITO NA MASTER MAS QUE NAO DEVE FIACR NA MASTER!!!!!!!
+// comentario feito na master mas que deve ir para nova branch ???
+// 
+
 namespace Utils.Mail
 {
     public class Emails
